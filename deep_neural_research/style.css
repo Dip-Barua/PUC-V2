@@ -222,24 +222,49 @@ canvas {
 /* Button Styling */
 .wow-btn {
   display: inline-block;
+  position: relative;
   padding: 15px 30px;
   font-size: 1.1rem;
   text-decoration: none;
-  color: #000;
-  background-color: #fff;
+  color: #fff;
+  background-color: #000;
   border-radius: 50px;
   text-align: center;
   letter-spacing: 0.1em;
   font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.wow-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.6),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.wow-btn:hover::before {
+  opacity: 1;
 }
 
 .wow-btn:hover {
-  background-color: #fff;
-  color: #000;
   transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: #222;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
 }
 
 .wow-btn:active {
