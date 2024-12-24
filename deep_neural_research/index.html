@@ -17,7 +17,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
@@ -28,12 +28,12 @@
         
 
 <!-- Navbar Sections -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-black navbar-dark sticky-top">
     
     <div class="container-fluid custom-container py-2">
 
         <!-- Club Name on the Left -->
-        <a class="navbar-brand" href="/">Premier University Computer Club</a>
+        <a class="navbar-brand" href="/"><img class="main-logo" src="./media/puc_computer_club_logo_color.png" alt=""></a>
 
         <!-- Toggler for Mobile View -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,9 +72,9 @@
             <!-- Login & Register on the Right -->
             <div class="d-flex">
                 <a href="Additional_pages/join_us.html">
-                    <button type="button" class="btn me-2 btn-light">Become a Member</button>
+                    <button type="button" class="btn me-2 btn-light rounded-pill">Become a Member</button>
                 </a>
-                <button type="button" class="btn btn-light">Login</button>
+                <button type="button" class="btn btn-light rounded-pill">Login</button>
             </div>
 
         </div>
@@ -90,12 +90,18 @@
 
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="deep-hero-section">
         <div class="container">
-            <h1>Master Deep Learning for Cutting-Edge AI Innovations</h1>
-            <p>Join our comprehensive course to learn the fundamentals, advanced concepts, and practical applications of
-                deep learning for AI research and development.</p>
-            <a href="../additional_info_page/join_deep_neural_research.html" class="btn btn-light">Learn More</a>
+            <div class="row">
+                <div class="col-lg-6 py-5">
+                    <h1 class="wow-heading">Master Deep Learning for <br> Cutting-Edge AI Innovations</h1>
+                    <p class="wow-paragraph">Join our comprehensive course to learn the fundamentals, advanced concepts, and practical applications of deep learning for AI research and development.</p>
+                    <a href="../additional_info_page/join_deep_neural_research.html" class="btn wow-btn">Learn More</a>
+                </div>
+                <div class="col-lg-6">
+                    <canvas id=c></canvas>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -115,7 +121,7 @@
             <div class="row">
                 <!-- Deep Learning Overview -->
                 <div class="col-md-4 py-3">
-                    <div class="card about-card">
+                    <div class="card about-card p-3">
                         <i class="fa-solid fa-brain icon" style="color: black;"></i>
                         <h5>Deep Learning Research</h5>
                         <p>Learn the fundamentals of deep learning, a key technology driving advancements in artificial
@@ -124,7 +130,7 @@
                 </div>
                 <!-- Applications of Deep Learning -->
                 <div class="col-md-4 ">
-                    <div class="card about-card">
+                    <div class="card about-card p-3">
                         <i class="fas fa-laptop-code icon"  style="color: black;"></i>
                         <h5>Build Systems</h5>
                         <p>Discover how deep learning is applied in areas like computer vision, natural language
@@ -133,7 +139,7 @@
                 </div>
                 <!-- Outcomes of the Course -->
                 <div class="col-md-4">
-                    <div class="card about-card">
+                    <div class="card about-card p-3">
                         <i class="fas fa-rocket icon"  style="color: black;"></i>
                         <h5>Publish Research</h5>
                         <p>By the end of the course, you'll be equipped to build and deploy deep learning models for
@@ -191,146 +197,128 @@
     </section>
 
 
-
-
-
-
-
-    <!-- Technologies & Tools Section -->
     <section class="technologies-section">
         <div class="container">
-
             <h2>Technologies & Tools</h2>
-
-            <div class="row text-center">
-
-                <!-- PyTorch -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-python.png" alt="PyTorch" class="tech-logo">
-                    <p>Python</p>
+            
+            <div id="techCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row text-center">
+                            <!-- PyTorch -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-python.png" alt="PyTorch" class="tech-logo">
+                                <p>Python</p>
+                            </div>
+    
+                            <!-- Cuda -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-Cuda.png" alt="Cuda" class="tech-logo" width="150px">
+                                <p>Cuda</p>
+                            </div>
+    
+                            <!-- TensorFlow -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-tensorflow.png" alt="TensorFlow" class="tech-logo">
+                                <p>TensorFlow</p>
+                            </div>
+    
+                            <!-- Hugging Face Transformers -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-huggingface.png" alt="Hugging Face" class="tech-logo">
+                                <p>Hugging Face Transformers</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="carousel-item">
+                        <div class="row text-center">
+                            <!-- PyTorch -->
+                            <div class="col-6 col-md-3">
+                                <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch" class="tech-logo">
+                                <p>PyTorch</p>
+                            </div>
+    
+                            <!-- Keras -->
+                            <div class="col-6 col-md-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="Keras" class="tech-logo">
+                                <p>Keras</p>
+                            </div>
+    
+                            <!-- Jupyter -->
+                            <div class="col-6 col-md-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter" class="tech-logo" height="100px">
+                                <p>Jupyter</p>
+                            </div>
+    
+                            <!-- Google Colab -->
+                            <div class="col-6 col-md-3">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg" alt="Google Colab" class="tech-logo" height="95px">
+                                <p>Google Colab</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="carousel-item">
+                        <div class="row text-center">
+                            <!-- OpenCV -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-OpenCV.png" alt="OpenCV" class="tech-logo">
+                                <p>OpenCV</p>
+                            </div>
+    
+                            <!-- AWS -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-aws.png" alt="AWS" class="tech-logo" height="75px">
+                                <p>AWS</p>
+                            </div>
+    
+                            <!-- Numpy -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-numpy.png" alt="Numpy" class="tech-logo">
+                                <p>Numpy</p>
+                            </div>
+    
+                            <!-- Pandas -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-pandas.png" alt="Pandas" class="tech-logo" height="80px">
+                                <p>Pandas</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="carousel-item">
+                        <div class="row text-center">
+                            <!-- scikit-learn -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-sklearn.png" alt="scikit-learn" class="tech-logo" height="100px">
+                                <p>scikit-learn</p>
+                            </div>
+    
+                            <!-- Matplotlib -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-matplotlib.png" alt="Matplotlib" class="tech-logo">
+                                <p>Matplotlib</p>
+                            </div>
+    
+                            <!-- Seaborn -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-seaborn.png" alt="Seaborn" class="tech-logo">
+                                <p>Seaborn</p>
+                            </div>
+    
+                            <!-- Kaggel -->
+                            <div class="col-6 col-md-3">
+                                <img src="media/logo-kaggel.png" alt="Kaggel" class="tech-logo">
+                                <p>Kaggel</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Keras -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-Cuda.png" alt="Keras"
-                        class="tech-logo" width="150px">
-                    <p>Cuda</p>
-                </div>
-
-                <!-- Jupyter -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-tensorflow.png" alt="Jupyter"
-                        class="tech-logo">
-                    <p>TensorFlow</p>
-                </div>
-
-                <!-- Google Colab -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-huggingface.png"
-                        alt="Google Colab" class="tech-logo">
-                    <p>Hugging Face Transformers</p>
-                </div>
-
             </div>
-
-            <div class="row text-center">
-                <!-- PyTorch -->
-                <div class="col-6 col-md-3">
-                    <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch" class="tech-logo">
-                    <p>PyTorch</p>
-                </div>
-
-                <!-- Keras -->
-                <div class="col-6 col-md-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg" alt="Keras"
-                        class="tech-logo">
-                    <p>Keras</p>
-                </div>
-
-                <!-- Jupyter -->
-                <div class="col-6 col-md-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter"
-                        class="tech-logo" height="100px">
-                    <p>Jupyter</p>
-                </div>
-
-                <!-- Google Colab -->
-                <div class="col-6 col-md-3">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg"
-                        alt="Google Colab" class="tech-logo" height="95px">
-                    <p>Google Colab</p>
-                </div>
-
-            </div>
-
-
-            <div class="row text-center">
-                <!-- PyTorch -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-OpenCV.png" alt="PyTorch" class="tech-logo">
-                    <p>OpenCV</p>
-                </div>
-
-                <!-- Keras -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-aws.png" alt="Keras"
-                        class="tech-logo mt-4" height="75px">
-                    <p>AWS</p>
-                </div>
-
-                <!-- Jupyter -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-numpy.png" alt="Jupyter"
-                        class="tech-logo mt-0">
-                    <p>Numpy</p>
-                </div>
-
-                <!-- Google Colab -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-pandas.png"
-                        alt="Google Colab" class="tech-logo" height="80px">
-                    <p>Pandas</p>
-                </div>
-
-            </div>
-
-            <div class="row text-center">
-                <!-- PyTorch -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-sklearn.png" alt="PyTorch" class="tech-logo"  height="100px"">
-                    <p>scikit-learn</p>
-                </div>
-
-                <!-- Keras -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-matplotlib.png" alt="Keras"
-                        class="tech-logo">
-                    <p>Matplotlib</p>
-                </div>
-
-                <!-- Jupyter -->
-                <div class="col-6 col-md-3">
-                    <img src="media/logo-seaborn.png" alt="Jupyter"
-                        class="tech-logo">
-                    <p>Seaborn</p>
-                </div>
-
-                <!-- Google Colab -->
-                <div class="col-6 col-md-3 mt-5">
-                    <img src="media/logo-kaggel.png"
-                        alt="Google Colab" class="tech-logo">
-                    <p>Kaggel</p>
-                </div>
-
-            </div>
-
-
         </div>
-
     </section>
-
-
-
+    
 
 
 
@@ -343,7 +331,7 @@
         <div class="row">
 
             <!-- Trainer 1 -->
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="col-md-6 col-lg-6 d-flex align-items-stretch mb-4">
                 <div class="card testimonial-card w-100">
                     <div class="card-body text-center">
                         
@@ -366,7 +354,7 @@
             </div>
 
             <!-- Division Lead -->
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-4">
+            <div class="col-md-6 col-lg-6 d-flex align-items-stretch mb-4">
                 <div class="card testimonial-card w-100">
                     <div class="card-body text-center">
                         
@@ -400,7 +388,7 @@
 
 
     <!-- Footer Section -->
-    <footer class="footer p-3">
+    <footer class="footer p-3 bg-black">
             
         <div class="row">
                 
@@ -446,6 +434,23 @@
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./animation.js"></script>
+    <script>
+        document.querySelectorAll('.wow-btn').forEach(button => {
+        button.addEventListener('mousemove', e => {
+            const rect = button.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            button.style.setProperty('--mouse-x', `${x}%`);
+            button.style.setProperty('--mouse-y', `${y}%`);
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.setProperty('--mouse-x', `50%`);
+            button.style.setProperty('--mouse-y', `50%`);
+        });
+        });
+    </script>
 </body>
 
 </html>
